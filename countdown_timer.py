@@ -1,7 +1,13 @@
+"""
+A simple countdown timer that counts down from a specified number of seconds.
+"""
 import time
 
 
 def set_countdown() -> None:
+    """
+    Sets a countdown timer based on user input in seconds.
+    """
     seconds = int(input("Enter amount of seconds: "))
     print("Countdown starts now...")
     temp = seconds
