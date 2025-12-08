@@ -7,11 +7,11 @@ GENDER = "gender"
 OCCUPATION = "occupation"
 
 
-def get_serial_no():
+def get_serial_no() -> int:
     return len(database["entries"]) + 1
 
 
-def add_entry(entry):
+def add_entry(entry: dict) -> None:
     entry = {
         "srno": get_serial_no(),
         "name": entry["name"],
@@ -22,32 +22,36 @@ def add_entry(entry):
     database["entries"].append(entry)
 
 
-def check_entry_presence(value):
+def check_entry_presence(value: tuple[str, str]) -> int:
     for num, entry in enumerate(database["entries"]):
         if entry[value[0]] == value[1]:
             return 1
     return 0
 
 
-def search_entry(value):
-    for num, entry in enumerate(database["entries"]):
+def search_entry(value: tuple[str, str]) -> dict | None:
+    for entry in database["entries"]:
         if entry[value[0]] == value[1]:
             return entry
+    return None
 
 
-def update_entry(value, updated_entry):
+def update_entry(value: tuple[str, str], updated_entry: dict) -> None:
     for num, entry in enumerate(database["entries"]):
         if entry[value[0]] == value[1]:
-            database["entries"][num] == updated_entry
+            database["entries"][num] = updated_entry
+    return None
 
-
-def delete_entry(value):
-    for num, entry in enumerate(database["entries"]):
+def delete_entry(value: tuple[str, str]) -> None:
+    for entry in database["entries"]:
         if entry[value[0]] == value[1]:
             database["entries"].remove(entry)
 
 
-def display_entry(entry):
+def display_entry(entry: dict[str, str] | None) -> None:
+    if entry is None:
+        print("Entry not found.")
+        return
     print(f"SRNO: {entry['srno']}")
     print(f"Name: {entry['name']}")
     print(f"Age: {entry['age']}")
@@ -55,12 +59,12 @@ def display_entry(entry):
     print(f"Occupation: {entry['occupation']}\n")
 
 
-def display_all_entries():
+def display_all_entries() -> None:
     for entry in database["entries"]:
         display_entry(entry)
 
 
-def select_entry_and_value():
+def select_entry_and_value() -> tuple[str, str]:
     value_type = ""
     value = ""
     while 1:
@@ -94,9 +98,9 @@ def select_entry_and_value():
                 value_type = OCCUPATION
                 value = input("Enter occupation to search: ")
                 return (value_type, value)
+    return "", ""
 
-
-def get_entry_details():
+def get_entry_details() -> dict[str, str]:
     output = {}
     output[NAME] = input("Enter name: ")
     output[AGE] = input("Enter age: ")
