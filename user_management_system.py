@@ -1,44 +1,51 @@
-database = {'entries': []}
+database = {"entries": []}
 
-SRNO = 'srno'
-NAME = 'name'
-AGE = 'age'
-GENDER = 'gender'
-OCCUPATION = 'occupation'
+SRNO = "srno"
+NAME = "name"
+AGE = "age"
+GENDER = "gender"
+OCCUPATION = "occupation"
+
 
 def get_serial_no():
-    return len(database['entries']) + 1
+    return len(database["entries"]) + 1
+
 
 def add_entry(entry):
     entry = {
-        'srno': get_serial_no(),
-        'name': entry['name'],
-        'age': entry['age'],
-        'gender': entry['gender'],
-        'occupation': entry['occupation']
+        "srno": get_serial_no(),
+        "name": entry["name"],
+        "age": entry["age"],
+        "gender": entry["gender"],
+        "occupation": entry["occupation"],
     }
-    database['entries'].append(entry)
+    database["entries"].append(entry)
+
 
 def check_entry_presence(value):
-    for num, entry in enumerate(database['entries']):
+    for num, entry in enumerate(database["entries"]):
         if entry[value[0]] == value[1]:
             return 1
     return 0
 
+
 def search_entry(value):
-    for num, entry in enumerate(database['entries']):
+    for num, entry in enumerate(database["entries"]):
         if entry[value[0]] == value[1]:
             return entry
 
+
 def update_entry(value, updated_entry):
-    for num, entry in enumerate(database['entries']):
+    for num, entry in enumerate(database["entries"]):
         if entry[value[0]] == value[1]:
-            database['entries'][num] == updated_entry
+            database["entries"][num] == updated_entry
+
 
 def delete_entry(value):
-    for num, entry in enumerate(database['entries']):
+    for num, entry in enumerate(database["entries"]):
         if entry[value[0]] == value[1]:
-            database['entries'].remove(entry)
+            database["entries"].remove(entry)
+
 
 def display_entry(entry):
     print(f"SRNO: {entry['srno']}")
@@ -47,15 +54,17 @@ def display_entry(entry):
     print(f"Gender: {entry['gender']}")
     print(f"Occupation: {entry['occupation']}\n")
 
+
 def display_all_entries():
     for entry in database["entries"]:
         display_entry(entry)
 
+
 def select_entry_and_value():
-    value_type = ''
-    value = ''
+    value_type = ""
+    value = ""
     while 1:
-        print('Choose an entry based on which to search entries in database: ')
+        print("Choose an entry based on which to search entries in database: ")
         print("1. srno")
         print("2. name")
         print("3. age")
@@ -86,6 +95,7 @@ def select_entry_and_value():
                 value = input("Enter occupation to search: ")
                 return (value_type, value)
 
+
 def get_entry_details():
     output = {}
     output[NAME] = input("Enter name: ")
@@ -93,6 +103,7 @@ def get_entry_details():
     output[GENDER] = input("Enter gender: ")
     output[OCCUPATION] = input("Enter occupation: ")
     return output
+
 
 print("===== Welcome To User Management System =====")
 while 1:
@@ -114,7 +125,7 @@ while 1:
             print("Entry successfully created...")
         elif choice == 2:
             value = select_entry_and_value()
-            print('Enter the details of the updated entry:-')
+            print("Enter the details of the updated entry:-")
             entry = get_entry_details()
             update_entry(value, entry)
             print("Entry successfully updated...")
@@ -129,5 +140,5 @@ while 1:
         elif choice == 5:
             display_all_entries()
         elif choice == 6:
-            print('Exiting')
+            print("Exiting")
             break
