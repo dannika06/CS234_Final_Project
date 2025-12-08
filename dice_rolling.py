@@ -1,7 +1,14 @@
+"""
+A simple dice rolling simulator that generates a random number between 1 and 6.
+"""
+
 import random
 
 
 def roll_dice() -> int:
+    """
+    Rolls a dice and returns a random number between 1 and 6.
+    """
     dice_number = random.randint(1, 6)
     return dice_number
 
