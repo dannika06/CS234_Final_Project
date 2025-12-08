@@ -1,15 +1,25 @@
+"""
+A simple Hangman game where the player has to guess a randomly selected word
+"""
+
 import random
 
 
-def get_random_word_from_wordlist():
+def get_random_word_from_wordlist() -> str:
+    """
+    Fetches a random word from the hangman_wordlist.txt file.
+    """
     wordlist = []
-    with open("hangman_wordlist.txt", "r") as file:
+    with open("hangman_wordlist.txt", "r", encoding="utf-8") as file:
         wordlist = file.read().split("\n")
     word = random.choice(wordlist)
     return word
 
 
 def get_some_letters(word: str) -> str:
+    """
+    Returns a string with some letters of the word revealed and the rest as underscores.
+    """
     letters = []
     temp = "_" * len(word)
     for char in list(word):
@@ -24,22 +34,25 @@ def get_some_letters(word: str) -> str:
     return temp
 
 
-def draw_hangman(chances: int):
+def draw_hangman(chances: int) -> None:
+    """
+    Draws the hangman figure based on the number of chances left.
+    """
     if chances == 0:
         print("----------")
         print("   ( )-|  ")
         print("  - | -    ")
-        print("   / \     ")
+        print(r"   / \     ")
     elif chances == 1:
         print("----------")
         print("   ( )-   ")
         print("  - | -    ")
-        print("   / \     ")
+        print(r"   / \     ")
     elif chances == 2:
         print("----------")
         print("   ( )    ")
         print("  - | -    ")
-        print("   / \     ")
+        print(r"   / \     ")
     elif chances == 3:
         print("----------")
         print("   ( )    ")
@@ -62,7 +75,10 @@ def draw_hangman(chances: int):
         print("           ")
 
 
-def start_hangman_game():
+def start_hangman_game() -> None:
+    """
+    Starts the hangman game.
+    """
     word = get_random_word_from_wordlist()
     temp = get_some_letters(word)
     chances = 7
@@ -79,13 +95,14 @@ def start_hangman_game():
         if len(character) > 1 or not character.isalpha():
             print("Please enter a single alphabet only")
             continue
-        else:
-            for num, char in enumerate(list(word)):
-                if char == character:
-                    templist = list(temp)
-                    templist[num] = char
-                    temp = "".join(templist)
-                    found = True
+
+        for num, char in enumerate(list(word)):
+            if char == character:
+                templist = list(temp)
+                templist[num] = char
+                temp = "".join(templist)
+                found = True
+
         if found:
             found = False
         else:
@@ -94,8 +111,7 @@ def start_hangman_game():
             print(f"\nYou Won !!! The word was: {word}")
             print(f"You got it in {7 - chances} chances")
             break
-        else:
-            draw_hangman(chances)
+        draw_hangman(chances)
         print()
 
 
