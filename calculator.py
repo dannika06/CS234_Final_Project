@@ -1,3 +1,8 @@
+"""
+A simple calculator app that can perform basic arithmetic operations
+like addition, subtraction, multiplication, and division.
+"""
+
 print("===== Welcome to Calculator App =====\n")
 while 1:
     print("What would you like to do:-")
