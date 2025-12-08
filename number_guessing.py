@@ -1,7 +1,8 @@
 """
-A simple number guessing game where the user has to guess a 
+A simple number guessing game where the user has to guess a
 randomly generated number between 0 and 9.
 """
+
 import random
 
 
