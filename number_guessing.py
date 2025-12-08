@@ -1,7 +1,7 @@
 import random
 
 
-def get_random_number():
+def get_random_number() -> int:
     random_number = random.randint(0, 9)
     return random_number
 

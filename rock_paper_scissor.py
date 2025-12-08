@@ -8,11 +8,11 @@ positive = [[PAPER, ROCK], [SCISSOR, PAPER], [ROCK, SCISSOR]]
 negative = [[ROCK, PAPER], [PAPER, SCISSOR], [SCISSOR, ROCK]]
 
 
-def get_computer_move():
+def get_computer_move() -> str:
     return random.choice(choices)
 
 
-def find_winner(user_move, computer_move):
+def find_winner(user_move: str, computer_move: str) -> int:
     if [user_move, computer_move] in positive:
         return 1
     elif [user_move, computer_move] in negative:

@@ -3,7 +3,7 @@ X = "X"
 O = "O"
 
 
-def displayBoard():
+def displayBoard() -> None:
     print(f" {board[0][0]} | {board[0][1]} | {board[0][2]}")
     print(" ----------")
     print(f" {board[1][0]} | {board[1][1]} | {board[1][2]}")
@@ -11,13 +11,13 @@ def displayBoard():
     print(f" {board[2][0]} | {board[2][1]} | {board[2][2]}")
 
 
-def updateBoard(character, position):
+def updateBoard(character: str, position: int) -> None:
     row = (position - 1) // 3
     column = (position - 1) % 3
     board[row][column] = character
 
 
-def check_win():
+def check_win() -> int:
     for i in range(3):
         if board[i][0] == board[i][1] == board[i][2]:
             return 1
@@ -31,7 +31,7 @@ def check_win():
     return 0
 
 
-def check_position(position):
+def check_position(position: int) -> int:
     row = (position - 1) // 3
     column = (position - 1) % 3
     if board[row][column] == X or board[row][column] == O:

@@ -2,7 +2,7 @@ import string
 import getpass
 
 
-def check_password_strength(password):
+def check_password_strength(password: str) -> None:
     lower_alpha_count = upper_alpha_count = number_count = whitespace_count = (
         special_char_count
     ) = 0

@@ -1,7 +1,7 @@
 import time
 
 
-def set_countdown():
+def set_countdown() -> None:
     seconds = int(input("Enter amount of seconds: "))
     print("Countdown starts now...")
     temp = seconds

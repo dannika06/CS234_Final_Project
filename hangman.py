@@ -9,7 +9,7 @@ def get_random_word_from_wordlist():
     return word
 
 
-def get_some_letters(word):
+def get_some_letters(word: str) -> str:
     letters = []
     temp = "_" * len(word)
     for char in list(word):
@@ -24,7 +24,7 @@ def get_some_letters(word):
     return temp
 
 
-def draw_hangman(chances):
+def draw_hangman(chances: int):
     if chances == 0:
         print("----------")
         print("   ( )-|  ")

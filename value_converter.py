@@ -1,4 +1,4 @@
-def convert_temperature():
+def convert_temperature() -> None:
     print("\nWhich conversion do you want to choose:-")
     print("1. Celsius to Faranheit")
     print("2. Faranheit to Celsius")
@@ -13,7 +13,7 @@ def convert_temperature():
         print("Invalid input...please try again\n")
 
 
-def convert_currency():
+def convert_currency() -> None:
     print("\nWhich conversion do you want to choose:-")
     print("1. Dollar to pound")
     print("2. Pound to Dollar")
@@ -26,7 +26,7 @@ def convert_currency():
         print(f"{value} pounds in dollars will be {value/0.73}\n")
 
 
-def convert_lengths():
+def convert_lengths() -> None:
     print("\nWhich conversion do you want to choose:-")
     print("1. Centimeters to foot and inches")
     print("2. Foot and inches to centimeter")

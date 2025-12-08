@@ -1,7 +1,7 @@
 import random
 
 
-def roll_dice():
+def roll_dice() -> int:
     dice_number = random.randint(1, 6)
     return dice_number
 
