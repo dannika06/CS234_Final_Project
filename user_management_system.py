@@ -42,6 +42,7 @@ def update_entry(value: tuple[str, str], updated_entry: dict) -> None:
             database["entries"][num] = updated_entry
     return None
 
+
 def delete_entry(value: tuple[str, str]) -> None:
     for entry in database["entries"]:
         if entry[value[0]] == value[1]:
@@ -99,6 +100,7 @@ def select_entry_and_value() -> tuple[str, str]:
                 value = input("Enter occupation to search: ")
                 return (value_type, value)
     return "", ""
+
 
 def get_entry_details() -> dict[str, str]:
     output = {}
