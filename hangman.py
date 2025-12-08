@@ -1,15 +1,17 @@
 import random
 
+
 def get_random_word_from_wordlist():
     wordlist = []
-    with open("hangman_wordlist.txt", 'r') as file:
-        wordlist = file.read().split('\n')
+    with open("hangman_wordlist.txt", "r") as file:
+        wordlist = file.read().split("\n")
     word = random.choice(wordlist)
     return word
 
+
 def get_some_letters(word):
     letters = []
-    temp = '_'*len(word)
+    temp = "_" * len(word)
     for char in list(word):
         if char not in letters:
             letters.append(char)
@@ -18,8 +20,9 @@ def get_some_letters(word):
         if char == character:
             templist = list(temp)
             templist[num] = char
-            temp = ''.join(templist)
+            temp = "".join(templist)
     return temp
+
 
 def draw_hangman(chances):
     if chances == 0:
@@ -58,6 +61,7 @@ def draw_hangman(chances):
         print("           ")
         print("           ")
 
+
 def start_hangman_game():
     word = get_random_word_from_wordlist()
     temp = get_some_letters(word)
@@ -68,7 +72,7 @@ def start_hangman_game():
             print(f"Sorry !!! You Lost, the word was: {word}")
             break
         print("=== Guess the word ===")
-        print(temp, end='')
+        print(temp, end="")
         print(f"\t(word has {len(word)} letters)")
         print(f"Chances left: {chances}")
         character = input("Enter the character you think the word may have: ")
@@ -80,13 +84,13 @@ def start_hangman_game():
                 if char == character:
                     templist = list(temp)
                     templist[num] = char
-                    temp = ''.join(templist)
+                    temp = "".join(templist)
                     found = True
         if found:
             found = False
         else:
             chances -= 1
-        if '_' not in temp:
+        if "_" not in temp:
             print(f"\nYou Won !!! The word was: {word}")
             print(f"You got it in {7 - chances} chances")
             break
@@ -94,13 +98,14 @@ def start_hangman_game():
             draw_hangman(chances)
         print()
 
+
 print("===== Welcome to Hangman Game =====")
 while 1:
     choice = input("Do you wanna play hangman (y/n): ")
-    if 'y' in choice.lower():
+    if "y" in choice.lower():
         start_hangman_game()
-    elif 'n' in choice.lower():
-        print('Exiting...')
+    elif "n" in choice.lower():
+        print("Exiting...")
         break
     else:
         print("Invalid input...please try again")
