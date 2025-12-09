@@ -1,4 +1,14 @@
+"""
+A simple value converter that can convert temperature, currency and lengths.
+"""
+
+import sys
+
+
 def convert_temperature() -> None:
+    """
+     Converts temperature between Celsius and Faranheit based on user choice.
+     """
     print("\nWhich conversion do you want to choose:-")
     print("1. Celsius to Faranheit")
     print("2. Faranheit to Celsius")
@@ -14,6 +24,9 @@ def convert_temperature() -> None:
 
 
 def convert_currency() -> None:
+    """
+    Converts currency between Dollar and Pound based on user choice.
+    """
     print("\nWhich conversion do you want to choose:-")
     print("1. Dollar to pound")
     print("2. Pound to Dollar")
@@ -27,6 +40,9 @@ def convert_currency() -> None:
 
 
 def convert_lengths() -> None:
+    """
+    Converts lengths between Centimeters and Foot/Inches based on user choice.
+    """
     print("\nWhich conversion do you want to choose:-")
     print("1. Centimeters to foot and inches")
     print("2. Foot and inches to centimeter")
@@ -50,13 +66,13 @@ while 1:
     print("2. Convert currency")
     print("3. Convert lengths")
     print("4. Exit")
-    choice = int(input("Enter your choice: "))
-    if choice == 1:
+    user_choice = int(input("Enter your choice: "))
+    if user_choice == 1:
         convert_temperature()
-    elif choice == 2:
+    elif user_choice == 2:
         convert_currency()
-    elif choice == 3:
+    elif user_choice == 3:
         convert_lengths()
-    elif choice == 4:
+    elif user_choice == 4:
         print("Exiting...")
-        exit(0)
+        sys.exit(0)
