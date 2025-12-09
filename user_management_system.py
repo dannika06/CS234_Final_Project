@@ -54,7 +54,8 @@ def search_entry(value: tuple[str, str]) -> dict | None:
     """
     Searches for an entry with the given value in the database.
     Args:
-        value (tuple[str, str]): A tuple containing the key and value to search for.
+        value (tuple[str, str]): A tuple containing
+        the key and value to search for.
     Returns:
         dict | None: The entry if found, None otherwise.
     """
@@ -68,8 +69,10 @@ def update_entry(value: tuple[str, str], updated_entry: dict) -> None:
     """
     Updates an existing entry in the database with new details.
     Args:
-        value (tuple[str, str]): A tuple containing the key and value to identify the entry.
-        updated_entry (dict): A dictionary containing the updated entry details.
+        value (tuple[str, str]): A tuple containing the key and
+        value to identify the entry.
+        updated_entry (dict): A dictionary containing the
+        updated entry details.
     Returns:
         None
     """
@@ -82,7 +85,8 @@ def delete_entry(value: tuple[str, str]) -> None:
     """
     Deletes an entry with the given value from the database.
     Args:
-        value (tuple[str, str]): A tuple containing the key and value to identify the entry.
+        value (tuple[str, str]): A tuple containing the key
+        and value to identify the entry.
     Returns:
         None
     """

@@ -39,7 +39,8 @@ while True:
         computers_move = get_computer_move()
         while True:
             move = (
-                input("Select a move ('r' for rock/'p' for paper/'s' for scissor): ")
+                input("Select a move "
+                      "('r' for rock/'p' for paper/'s' for scissor): ")
                 .strip()
                 .lower()
             )

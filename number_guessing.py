@@ -28,7 +28,10 @@ while 1:
                 print("Invalid input...please try again")
             else:
                 if user_number == generate_random_number:
-                    print(f"Congratulations! You got the number in {chances} chances\n")
+                    print(
+                        f"Congratulations! You got the number "
+                        f"in {chances} chances\n"
+                    )
                     chances = 0
                     break
                 if user_number > generate_random_number:

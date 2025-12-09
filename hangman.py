@@ -18,7 +18,8 @@ def get_random_word_from_wordlist() -> str:
 
 def get_some_letters(word: str) -> str:
     """
-    Returns a string with some letters of the word revealed and the rest as underscores.
+    Returns a string with some letters of the word revealed
+    and the rest as underscores.
     """
     letters = []
     temp = "_" * len(word)

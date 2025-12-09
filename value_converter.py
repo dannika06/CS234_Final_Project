@@ -15,10 +15,12 @@ def convert_temperature() -> None:
     choice = int(input("Enter your choice: "))
     if choice == 1:
         temp = float(input("Enter temperature in celsius: "))
-        print(f"{temp} degree celsius is equal to {(temp*9/5)+32} degree faranheit.\n")
+        print(f"{temp} degree celsius is equal to "
+              f"{(temp*9/5)+32} degree faranheit.\n")
     elif choice == 2:
         temp = float(input("Enter temperature in faranheit: "))
-        print(f"{temp} degree faranheit is equal to {(temp-32)*5/9} degree celsius.\n")
+        print(f"{temp} degree faranheit is equal to "
+              f"{(temp-32)*5/9} degree celsius.\n")
     else:
         print("Invalid input...please try again\n")
 
@@ -51,12 +53,14 @@ def convert_lengths() -> None:
         value = float(input("Enter length in cm: "))
         inches = value / 2.54
         feet = inches / 12
-        print(f"{value} centimeters in equal to {feet} feet and {inches} inch\n")
+        print(f"{value} centimeters in equal to "
+              f"{feet} feet and {inches} inch\n")
     elif choice == 2:
         feet = float(input("Enter length in feet: "))
         inches = float(input("Enter length in inches: "))
         length = (feet * 12 + inches) * 2.54
-        print(f"{feet} feet and {inches} inches in centimeters will be {length}\n")
+        print(f"{feet} feet and {inches} inches in "
+              f"centimeters will be {length}\n")
 
 
 print("===== Welcome to Value Converter =====")
