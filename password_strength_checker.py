@@ -1,8 +1,24 @@
+"""
+A simple password strength checker that evaluates the strength of a given password
+based on the presence of lowercase letters, uppercase letters, digits, whitespaces,
+and special characters.
+"""
+
 import string
 import getpass
 
 
-def check_password_strength(password: str) -> None:
+def calculate_password_strength(password: str) -> tuple[int, int, int, int, int]:
+    """
+    Calculates the strength of the given password by counting the occurrences of
+    lowercase letters, uppercase letters, digits, whitespaces, and special characters.
+
+    Args:
+        password (str): The password to be evaluated.
+    Returns:
+        tuple: A tuple containing counts of lowercase letters, uppercase letters,
+                digits, whitespaces, and special characters.
+    """
     lower_alpha_count = upper_alpha_count = number_count = whitespace_count = (
         special_char_count
     ) = 0
@@ -17,6 +33,30 @@ def check_password_strength(password: str) -> None:
             whitespace_count += 1
         else:
             special_char_count += 1
+    return (
+        lower_alpha_count,
+        upper_alpha_count,
+        number_count,
+        whitespace_count,
+        special_char_count,
+    )
+
+
+def check_password_strength(password: str) -> None:
+    """
+    Checks the strength of the given password and prints the analysis.
+    Args:
+        password (str): The password to be checked.
+    Returns:
+        None
+    """
+    (
+        lower_alpha_count,
+        upper_alpha_count,
+        number_count,
+        whitespace_count,
+        special_char_count,
+    ) = calculate_password_strength(password)
     strength = 0
     remarks = ""
 
@@ -42,7 +82,7 @@ def check_password_strength(password: str) -> None:
     elif strength == 4:
         remarks = "Your password is hard to guess. But you can make it even more secure"
     elif strength == 5:
-        remarks = "Now that's one hell of a strong password !!! Hackers don't have a chance guessing that password."
+        remarks = "That's one hell of a strong password!! Hackers will never guess that password."
 
     print("Your password has:-")
     print(f"{lower_alpha_count} lowercase letters")
@@ -58,8 +98,8 @@ print("===== Welcome to Password Strength Checker =====")
 while 1:
     choice = input("Do you want to check a password's strength (y/n) : ")
     if "y" in choice.lower():
-        password = getpass.getpass("Enter the password: ")
-        check_password_strength(password)
+        user_password = getpass.getpass("Enter the password: ")
+        check_password_strength(user_password)
     elif "n" in choice.lower():
         print("Exiting...")
         break
