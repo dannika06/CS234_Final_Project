@@ -73,21 +73,24 @@ while 1:
         display_board()
         while 1:
             choice = int(
-                input(f"Player {(counter%2)+1}, enter your position ('{X}'): ")
+                input(f"Player {(counter % 2)+1}, "
+                      f"enter your position ('{X}'): ")
             )
             if choice < 1 or choice > 9:
                 print("Invalid input...please try again.")
             if check_position(choice):
                 update_board(X, choice)
                 if check_win():
-                    print(f"Conguratulations !!! Player {(counter%2)+1} won !!!")
+                    print(f"Conguratulations !!! "
+                          f"Player {(counter % 2)+1} won !!!")
                     sys.exit(0)
                 else:
                     counter += 1
                     break
             else:
                 print(
-                    f"Position {choice} is already occupied. Choose another position."
+                    f"Position {choice} is already occupied."
+                    f" Choose another position."
                 )
         if counter == 9:
             print("The match ended with a draw !!! Better luck next time")
@@ -96,20 +99,23 @@ while 1:
         display_board()
         while 1:
             choice = int(
-                input(f"Player {(counter%2)+1}, enter your position ('{O}'): ")
+                input(f"Player {(counter % 2)+1},"
+                      f" enter your position ('{O}'): ")
             )
             if choice < 1 or choice > 9:
                 print("Invalid input...please try again.")
             if check_position(choice):
                 update_board(O, choice)
                 if check_win():
-                    print(f"Conguratulations !!! Player {(counter%2)+1} won !!!")
+                    print(f"Conguratulations !!!"
+                          f"Player {(counter % 2)+1} won !!!")
                     sys.exit(0)
                 else:
                     counter += 1
                     break
             else:
                 print(
-                    f"Position {choice} is already occupied. Choose another position."
+                    f"Position {choice} is already occupied."
+                    f" Choose another position."
                 )
     print()
